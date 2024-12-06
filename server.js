@@ -6,13 +6,13 @@ const schoolRoutes = require ('./routes/school')
 
 dotEnv.config();
 const app=express();
-const PORT = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 
 app.use('/api',schoolRoutes)
 //app.use(express.json())
 app.use(bodyParser.json());
 
-app.listen(PORT,(err)=>{
+app.listen(port,(err)=>{
     if (err){
         console.log(err.message)
     }
