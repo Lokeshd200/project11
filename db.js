@@ -5,7 +5,7 @@ dotEnv.config();
 
 const dbPath = path.join(__dirname,"database.db")
 
-const db = new sqlite3.Database(process.env.DATABASE_URL, (err) => {
+const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
       console.error('Error connecting to SQLite database:', err.message);
     } else {
