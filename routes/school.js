@@ -29,11 +29,11 @@ router.post('/addSchool', (req, res) => {
   }
 
   const query = 'INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)';
-  db.query(query, [name, address, latitude, longitude], (err, results) => {
+  db.run(query, [name, address, latitude, longitude], (err, results) => {
     if (err) {
       return res.status(500).json({ message: 'Database error', error: err });
     }
-    res.status(201).json({ message: 'School added successfully', id: results.insertId });
+    res.status(201).json({ message: 'School added successfully', id: this.lastID });
   });
 });
 
@@ -54,7 +54,7 @@ router.get('/listSchools', (req, res) => {
   }
 
   const query = 'SELECT * FROM schools';
-  db.query(query, (err, results) => {
+  db.all(query, (err, results) => {
     if (err) {
       return res.status(500).json({ message: 'Database error', error: err });
     }

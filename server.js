@@ -9,9 +9,9 @@ dotEnv.config();
 const app=express();
 const PORT = process.env.PORT || 3000
 
-app.use(bodyParser.json());
 app.use('/api',schoolRoutes)
-app.use(express.json())
+//app.use(express.json())
+app.use(bodyParser.json());
 
 app.listen(PORT,(err)=>{
     if (err){
