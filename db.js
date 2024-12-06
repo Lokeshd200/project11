@@ -1,4 +1,4 @@
-const sqlite3 = require('better-sqlite3').verbose();
+const sqlite3 = require('sqlite3').verbose();
 const dotEnv= require ('dotenv');
 const path = require ('path')
 dotEnv.config();
